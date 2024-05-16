@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlashCard.DetailPage"             
+             xmlns:local="clr-namespace:FlashCard"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <local:DetailViewModel />
+    </ContentPage.BindingContext>
+    
+    <StackLayout>        
+        <VerticalStackLayout Padding="30" Spacing="25">
+            <Button Text="&lt;" 
+                BackgroundColor="Black" 
+                WidthRequest="30" 
+                HeightRequest="30" 
+                CornerRadius="22" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                FontSize="28"
+                Clicked="OnBackButtonClicked"  />
+
+
+            <Label Text="{Binding IsCardFlipped}"
+                FontSize="20"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand" />   
+            <StackLayout Margin="5">
+                <Frame Padding="15"
+                    BorderColor="Gray"
+                    CornerRadius="20"
+                    HeightRequest="250"
+                    WidthRequest="300">
+                    <Frame.Triggers>
+                        <DataTrigger TargetType="Frame" Binding="{Binding IsCardFlipped}" Value="False">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Frame" Binding="{Binding IsCardFlipped}" Value="True">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="30,0" Spacing="25">
+                        <Label Text="{Binding FrontValue}"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand" />              
+                    </StackLayout>
+                </Frame>
+
+                <Frame Padding="15"
+                    BorderColor="Gray"
+                    CornerRadius="20"
+                    HeightRequest="250"
+                    WidthRequest="300">
+                    <Frame.Triggers>
+                        <DataTrigger TargetType="Frame" Binding="{Binding IsCardFlipped}" Value="True">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Frame" Binding="{Binding IsCardFlipped}" Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="30,0" Spacing="25">
+                        <Label Text="{Binding BackValue}"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand" />                                         
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Flip" 
+                    BackgroundColor="Black" 
+                    WidthRequest="30" 
+                    HeightRequest="30" 
+                    CornerRadius="22" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="FillAndExpand"
+                    FontSize="28"
+                    Clicked="OnFlipButtonClicked"  />
+            </StackLayout>
+
+        </VerticalStackLayout>
+    </StackLayout>
+</ContentPage>

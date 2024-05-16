@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlashCard.HelpCloningPage"
+             Title="HelpCloningPage"
+             xmlns:local="clr-namespace:FlashCard"
+             Shell.NavBarIsVisible="False">
+        
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <FlexLayout Direction="Row"
+                    JustifyContent="SpaceBetween"
+                    AlignItems="Center"
+                    Padding="10"
+                    HeightRequest="50">
+                    <Button Text="&lt;" 
+                        BackgroundColor="Black" 
+                        WidthRequest="30" 
+                        HeightRequest="30" 
+                        CornerRadius="22" 
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center"
+                        FontSize="28"
+                        Clicked="OnBackButtonClicked"  />
+        </FlexLayout>
+        <Entry x:Name="labelEntry" Placeholder="Label"/>
+        <Entry x:Name="descriptionEntry" Placeholder="Description"/>
+        <Button Text="Clone Deck" Clicked="OnCloneButtonClicked"/>
+        
+        <Label x:Name="originalLabel" TextColor="Blue"/>
+        <Entry x:Name="originalCard1Label" Placeholder="Update Card 1 Label" TextChanged="OnOriginalCardLabelChanged"/>
+        <Label x:Name="shallowLabel" TextColor="Green"/>
+        <Entry x:Name="shallowCard1Label" Placeholder="Update Card 1 Label" TextChanged="OnShallowCardLabelChanged"/>
+        <Label x:Name="deepLabel" TextColor="Red"/>
+        <Entry x:Name="deepCard1Label" Placeholder="Update Card 1 Label" TextChanged="OnDeepCardLabelChanged"/>
+    </VerticalStackLayout>
+</ContentPage>

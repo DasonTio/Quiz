@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/dasontiovino/Documents/University/PemogramanBerorientasiObjek/Quiz/FlashCard/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/dasontiovino/Documents/University/PemogramanBerorientasiObjek/Quiz/FlashCard/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/FlashCard.app
