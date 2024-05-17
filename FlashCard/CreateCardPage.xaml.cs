@@ -59,25 +59,6 @@ public partial class CreateCardPage : ContentPage
 		await Shell.Current.GoToAsync("///MainPage");
 	}
 
-	private void OnDeepCloneClicked(object sender, EventArgs e)
-	{
-		Deck deepClone = (Deck)_templateDeck.DeepClone();
-
-		_createCardViewModel.LabelValue = deepClone.Label;
-		foreach (var card in _templateDeck.Cards)
-		{
-			_createCardViewModel.Cards.Add(card);
-		}
-		_templateDeck.Label = "Modified Label";
-		_templateDeck.Cards.First().Front = "Modified Front";
-	}
-
-	private void OnShallowCloneClicked(object sender, EventArgs e)
-	{
-		Deck shallowClone = (Deck)_templateDeck.Clone();
-
-	}
-
 	private async void OnBackButtonClicked(object sender, EventArgs e)
 	{
 		await Shell.Current.GoToAsync("///MainPage");
